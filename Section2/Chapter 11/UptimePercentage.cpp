@@ -79,8 +79,6 @@ void process_uptimes(const map<string, vector<double>> &uptimes) {
       accumulate(uptimes.begin(), uptimes.end(), 0.0, [](double total, auto p) {
         return total + accumulate(p.second.begin(), p.second.end(), 0.0);
       });
-  int uptimeCount =
-      accumulate(uptimes.begin(), uptimes.end(), 0,
-                 [](int count, auto p) { return count + p.second.size(); });
+  int uptimeCount =accumulate(uptimes.begin(), uptimes.end(), 0, [](int count, auto p) { return count + p.second.size(); });
   cout << setprecision(2) << (uptimeTotal / uptimeCount) << "\n\n";
 }
