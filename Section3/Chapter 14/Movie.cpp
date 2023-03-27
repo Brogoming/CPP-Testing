@@ -1,5 +1,5 @@
-#include "Movie.h"
 #include <string>
+#include "Movie.h"
 
 using std::string;
 using std::invalid_argument;
@@ -39,7 +39,7 @@ void Movie::set_year(int yearParam){
     year = yearParam;
 }
 
-int Movie::get_year(){
+int Movie::get_year() const{
     return year;
 }
 
@@ -50,7 +50,7 @@ void Movie::set_stars(int starsParam){
     stars = starsParam;
 }
 
-int Movie::get_stars() const{
+int Movie::get_stars(){
     return stars;
 }
 

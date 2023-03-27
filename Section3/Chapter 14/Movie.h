@@ -11,15 +11,16 @@ class Movie{
 
         std::string to_upper(std::string);
     public:
-        Movie(std::string title = "", int year = 1888, int stars = 1;);
-        Movie set_title(std::string);
+        Movie(std::string title = "", int year = 1888, int stars = 1);
+        
+        void set_title(std::string);
         std::string get_title() const;
 
-        Movie set_year(int);
+        void set_year(int);
         int get_year() const;
 
-        Movie set_stars(int);
-        int get_stars() const;
+        void set_stars(int);
+        int get_stars();
 
         bool iequals(const Movie&);
 };
