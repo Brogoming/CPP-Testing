@@ -1,14 +1,13 @@
-#include <string>
-#include <cmath>
+
 #include "Product.h"
 
 using std::string;
 using std::invalid_argument;
 
-Product::Product(string pName, double price, int discoutPercent){
-    name = pName;
-    set_price(price);
-    set_discount_percent(discoutPercent);
+Product::Product(string nameParam, double tempPrice, int tempDisPer){
+    name = nameParam;
+    set_price(tempPrice);
+    set_dicount_percent(tempDisPer);
 }
 
 void Product::set_price(double pPrice){
@@ -27,7 +26,15 @@ void Product::set_discount_percent(int pDiscoutPercent){
     }
 }
 
-double Product::get_discount_amount(){
+double Product::get_price() const {
+    return price;
+}
+
+int Product::get_discount_percent() const {
+    return discountPercent;
+}
+
+double Product::get_discount_amount() const {
     double discountAmount = price * pDiscoutPercent / 100;
     return round(discountAmount * 100) / 100;
 }
@@ -35,4 +42,8 @@ double Product::get_discount_amount(){
 double Product::get_discount_price(){
     double discountPrice = price - get_discount_amount();
     return round(discountPrice * 100) / 100;
+}
+
+string Product::get_description() const {
+    return name;
 }
