@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <limits>
+// #include "console.h"
+using namespace std;
 
 namespace console{
     //declare hepler functions
@@ -9,12 +11,12 @@ namespace console{
     bool check_range(double num, double min, double max);
 
     //define general-purpose functions
-    double get_double(std::string prompt, double min, double max){
+    double get_double(string prompt, double min, double max){
         double num = 0.0;
         bool is_valid = false;
         while(!is_valid){
-            std::cout << prompt;
-            if(!(std::cin >> num)){
+            cout << prompt;
+            if(!(cin >> num)){
                 handle_invalid_number();
             } else {
                 discard_remaining_chars();
@@ -24,12 +26,12 @@ namespace console{
         return num;
     }
 
-    int get_int(std::string prompt, int min, int max){
+    int get_int(string prompt, int min, int max){
         int num = 0;
         bool is_valid = false;
         while(!is_valid){
-            std::cout << prompt;
-            if(!(std::cin >> num)){
+            cout << prompt;
+            if(!(cin >> num)){
                 handle_invalid_number();
             } else {
                 discard_remaining_chars();
@@ -39,33 +41,33 @@ namespace console{
         return num;
     }
 
-    char get_char(std::string prompt, bool add_blank_line = true){
+    char get_char(string prompt, bool add_blank_line = true){
         char choice = 'n';
-        std::cout << prompt;
-        std::cin >> choice;
+        cout << prompt;
+        cin >> choice;
         if(add_blank_line){
-            std::cout << std::endl;
+            cout << endl;
         }
         discard_remaining_chars();
         return choice;
     }
 
     void discard_remaining_chars(){
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
     void handle_invalid_number(){
-        std::cout << "Error! Invalid number. Try again.\n";
-        std::cin.clear();
+        cout << "Error! Invalid number. Try again.\n";
+        cin.clear();
         discard_remaining_chars();
     }
 
     bool check_range(double num, double min, double max){
         if(num < min){
-            std::cout << "Error! Number must be greater than " << min << ". Try again.\n";
+            cout << "Error! Number must be greater than " << min << ". Try again.\n";
             return false;
         } else if(num > max){
-            std::cout << "Error! Number must be less than " << max << ". Try again.\n";
+            cout << "Error! Number must be less than " << max << ". Try again.\n";
             return false;
         } else {
             return true;
