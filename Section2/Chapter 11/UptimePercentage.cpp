@@ -29,7 +29,9 @@ int main() {
 }
 
 // displays the value no matter the datatype
-template <typename T> void display(T value) { cout << value << "% "; }
+template <typename T> void display(T value) { 
+  cout << value << "% "; 
+}
 
 map<string, vector<double>> load_uptimes(string filename) {
   map<string, vector<double>> uptimes;
@@ -68,9 +70,11 @@ void process_uptimes(const map<string, vector<double>> &uptimes) {
     cout << (sum / times.size()) << '%';
 
     cout << "\n\tDaily: " << setprecision(1);
-    for_each(times.begin(), times.end(),
-             display<double>); // for each valeu with the range display with
-                               // datatype double
+    for_each(times.begin(), times.end(), display<double>); // for each valeu with the range display with // datatype double
+
+    sort(times.begin(), times.end());
+    cout << "\n\tSorted: ";
+    for_each(times.begin(), times.end(), display<double>);
     cout << endl;
   }
 

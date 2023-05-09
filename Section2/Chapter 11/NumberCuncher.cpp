@@ -21,7 +21,7 @@ int main() {
   //fill the vector with random numbers
   srand(time(nullptr));
   for (int i = 0; i< numbers.capacity(); ++i){
-    int number = rand() % 30;
+    int number = rand() % 30; //0 - 29
     numbers.push_back(number);
   }
 
