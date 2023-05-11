@@ -45,7 +45,7 @@ int main(){
         //calculate total average scores
         double total = calculate_total(sales, salesCount);
         double average = total / salesCount;
-        average = round(average*100)/100;
+        average = round(average*10)/10;
 
         //display the score count, score total, and average score
         cout << "Sales count:     " << salesCount << endl
