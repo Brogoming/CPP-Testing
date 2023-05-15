@@ -28,7 +28,7 @@ void Product::set_discount_percent(int pDiscoutPercent){
 }
 
 double Product::get_discount_amount(){
-    double discountAmount = price * pDiscoutPercent / 100;
+    double discountAmount = price * discoutPercent / 100;
     return round(discountAmount * 100) / 100;
 }
 

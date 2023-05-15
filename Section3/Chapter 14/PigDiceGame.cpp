@@ -1,33 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-// #include "Die.h"
-
-//Die.h
-class Die{
-private: 
-    int value;
-
-public:
-    Die();
-    void roll();
-    int get_value() const;
-};
-
-//Die.cpp
-Die::Die(){
-    srand(time(nullptr));
-    value = 1;
-}
-
-void Die::roll(){
-    value = rand() % 6; //0 <= value <= 5
-    ++value; //1 <= value <= 6
-}
-
-int Die::get_value() const{
-    return value;
-}
+#include "Die.cpp"
 
 using namespace std;
 

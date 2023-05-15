@@ -6,6 +6,7 @@
 class Product{
     double price;
     int discoutPercent;
+    
 public:
     std::string name;
     Product(std::string name = "", double price = 0.0, int discoutPct = 0);

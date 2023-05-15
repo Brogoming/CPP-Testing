@@ -1,66 +1,10 @@
 #include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <ctime>
-// #include "Die.h"
-// #include "Dice.h"
+#include "Die.cpp"
+#include "Dice.cpp"
 
 using namespace std;
-
-//Die.h
-class Die{
-private: 
-    int value;
-
-public:
-    Die();
-    void roll();
-    int get_value() const;
-};
-
-//Dice.h
-class Dice{
-private: 
-    vector<Die> dice;
-
-public:
-    Dice();
-    void add_die(Die die);
-    void roll_all();
-    vector<Die> get_dice() const;
-};
-
-//Die.cpp
-Die::Die(){
-    srand(time(nullptr));
-    value = 1;
-}
-
-void Die::roll(){
-    value = rand() % 6; //0 <= value <= 5
-    ++value; //1 <= value <= 6
-}
-
-int Die::get_value() const{
-    return value;
-}
-
-//Dice.cpp
-Dice::Dice(){}
-
-void Dice::add_die(Die die){
-    dice.push_back(die);
-}
-
-void Dice::roll_all() {
-    for(Die& die : dice){
-        die.roll();
-    }
-}
-
-vector<Die> Dice::get_dice() const{
-    return dice;
-}
 
 int main(){
     cout << "THe Dice Roller Program\n\n";

@@ -1,4 +1,6 @@
-#include "Die.h"
+#include "Dice.h"
+
+using namespace std;
 
 Dice::Dice(){}
 
@@ -6,12 +8,20 @@ void Dice::add_die(Die die){
     dice.push_back(die);
 }
 
-int Dice::roll_all() const{
+void Dice::roll_all(){
     for(Die& die : dice){
         die.roll();
     }
 }
 
-std::vector<Die> Dice::get_dice() const{
+vector<Die> Dice::get_dice() const{
     return dice;
+}
+
+int Dice::get_total(){
+    int total = 0;
+    for(Die& die : dice){
+        total += die.get_value();
+    }
+    return total;
 }

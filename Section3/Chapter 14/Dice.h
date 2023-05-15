@@ -13,6 +13,7 @@ public:
     void add_die(Die die);
     void roll_all();
     std::vector<Die> get_dice() const;
+    int get_total();
 };
 
 #endif //MURACH_DIE_H
