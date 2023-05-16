@@ -4,11 +4,12 @@
 #include <string>
 #include "Product.h"
 
-class Movie: public Product{
+class Movie : public Product{ //inherits the Product class
     private:
         int year;
     public:
-        Movie(std::string name = "", double price = 0.0, int discountPct = 0, int yearParam = 1888) : Product(name, price, discountPct){
+        Movie(std::string name = "", double price = 0.0, int discountPct = 0, int yearParam = 1888) : 
+            Product(name, price, discountPct){
             year = yearParam;
         }
 
@@ -17,7 +18,7 @@ class Movie: public Product{
         }
         int get_year() const { return year;}
 
-        std::string get_description() const {
+        std::string get_description() const override{ //overrides the function
             return name + " (" + std::to_string(year) + ")";
         }
 };

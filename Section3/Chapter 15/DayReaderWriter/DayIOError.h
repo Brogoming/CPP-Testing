@@ -9,4 +9,4 @@ class DayIOError : public std::runtime_error{
     DayIOError(std::string message = "") : runtime_error(message){};
 };
 
-#endif
+#endif //MURACH_DAYIOERROR_H

@@ -7,10 +7,10 @@
 
 class DayReader {
     private:
-    std::string fileName;
+        std::string fileName;
     public:
-    DayReader(std::string fileName = "");
-    std::vector<Day> load_temps();
+        DayReader(std::string fileName = "");
+        std::vector<Day> load_temps();
 };
 
 #endif

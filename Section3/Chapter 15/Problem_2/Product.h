@@ -4,7 +4,7 @@
 #include <string>
 
 class Product{
-    protected:
+    protected: //available to the current class or subclasses
         std::string name;
     private:
         double price;
@@ -12,16 +12,16 @@ class Product{
     public:
         Product(std::string name = "", double price = 0.0, int discountPct = 0);
 
-        void set_price(double);
-        double get_price() const {return price;}
+        void set_price(double pPrice);
+        double get_price() const;
 
-        void set_dicount_percent(int);
-        int get_discount_percent() const {return discountPercent;}
+        void set_discount_percent(int pDiscoutPercent);
+        int get_discount_percent() const;
 
         double get_discount_amount() const;
         double get_discount_price() const;
 
-        virtual std::string get_description() const = 0;
+        virtual std::string get_description() const = 0; //nessesary for polymorphism, this allows to function to be over writen
 };
 
 #endif
