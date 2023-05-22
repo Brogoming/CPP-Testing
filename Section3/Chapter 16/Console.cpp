@@ -39,7 +39,7 @@ int Console::get_int(std::string prompt, int min, int max){
     return num;
 }
 
-char Console::get_char(std::string prompt, bool add_blank_line = true){
+char Console::get_char(std::string prompt, bool add_blank_line){
     char choice = 'n';
     std::cout << prompt;
     std::cin >> choice;
