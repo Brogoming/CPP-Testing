@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
-// #include "console.h"
+#include "console.h"
 using namespace std;
 
 namespace console{

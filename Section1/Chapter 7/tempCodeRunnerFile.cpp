@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <limits>
-#include "Console.cpp"
+#include "console.cpp"
 
 using namespace std;
 
@@ -12,15 +12,13 @@ double calc_future_val(double monthlyInvestment, double yearlyInterest, int year
 int main(){
     cout << "The Future Value Calculator\n\n";
 
-    Console c;
-
     char choice = 'y';
     while(tolower(choice) == 'y'){
         //get input 
         cout << "Input\n";
-        double monthlyInvestment = c.get_double("Monthly Investment: ", 0, 10000);
-        double yearlyInterest = c.get_double("Yearly Interest Rate: ", 0, 30);
-        int years = c.get_int("Years: ", 0, 100);
+        double monthlyInvestment = console::get_double("Monthly Investment: ", 0, 10000);
+        double yearlyInterest = console::get_double("Yearly Interest Rate: ", 0, 30);
+        int years = console::get_int("Years: ", 0, 100);
         cout << endl;
 
         //calculate future value
@@ -37,7 +35,7 @@ int main(){
              << "Future Value: " << futureVal << "\n\n";
 
         //ask the user if they want to continue
-        choice = Console::get_char("Continue? (y/n): ");
+        choice = console::get_char("Continue? (y/n): ");
     }
     cout << "Bye!\n\n";
 }
