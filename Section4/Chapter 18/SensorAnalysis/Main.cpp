@@ -3,11 +3,11 @@
 #include <ctime>
 #include <algorithm>
 #include <numeric>
-#include "HeapArray.cpp"
+#include "HeapArray.h"
 
 using namespace std;
 
-void load_sensor_data(HeapArray& data);
+void load_sensor_data(HeapArray<int>& data);
 
 int main(){
     cout << "Sensor Analysis Program\n\n";
@@ -20,7 +20,7 @@ int main(){
     const int secondsPerDay = 86400;
     int totalSeconds = numDays * secondsPerDay;
 
-    HeapArray data(totalSeconds);
+    HeapArray<int> data(totalSeconds);
     load_sensor_data(data);
 
     double total = accumulate(data.begin(), data.end(), 0);
@@ -35,7 +35,7 @@ int main(){
     return 0;
 }
 
-void load_sensor_data(HeapArray& data){
+void load_sensor_data(HeapArray<int>& data){
     srand(time(nullptr));
     int adjust = rand() % 70 + 10; //10 - 70
 
