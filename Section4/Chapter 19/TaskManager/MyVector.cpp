@@ -69,7 +69,7 @@ MyVector<T>& MyVector<T>::operator=(const MyVector& toCopy){
 
     //copy elements
     for(int i = 0; i < arraySize; ++i){
-        newElemp[i] = toCopy.elem[i];
+        newElem[i] = toCopy.elem[i];
     }
 
     //deallocate old space
@@ -100,4 +100,63 @@ MyVector<T>& MyVector<T>::operator=(MyVector&& toMove){
 
     //return a self-reference
     return *this;
+}
+
+//at()
+template<typename T>
+typename MyVector<T>::reference MyVector<T>::at(int i){
+    if(i < 0 || i >=arraySize){
+        throw out_of_range("MyVector<T>::at() - index out of range");
+    } else {
+        return elem[i];
+    }
+}
+
+template<typename T>
+typename MyVector<T>::const_reference MyVector<T>::at(int i) const {
+    if(i < 0 || i >=arraySize){
+        throw out_of_range("MyVector<T>::at() - index out of range");
+    } else {
+        return elem[i];
+    }
+}
+
+//reserve()
+template<typename T>
+void MyVector<T>::reserve(int newSize){
+    if(newSize <= space) return; //never decrease allocation
+    T* newElem = new T[newSize]; //allocate new space
+    for(int i = 0; i < arraySize; ++i){ //copy old elements
+        newElem[i] = elem[i];
+    }
+    delete[] elem; //deallocate old space
+    elem = newElem; //assign new space
+    space = newSize; //set new capacity
+}
+
+//push_back()
+template<typename T>
+void MyVector<T>::push_back(T item){
+    if(space == 0){ //if array is empty
+        reserve(1); //start with the capacity of 1
+    } else if(arraySize == space){ //if array is full
+        reserve(2 * space); //add more capacity
+    }
+
+    elem[arraySize] = item; //add item at the end
+    ++arraySize; //increment the variable that tracks the size
+}
+
+//resize()
+template<typename T>
+void MyVector<T>::resize(int newSize){
+    reserve(newSize); //set new capacity
+    for(int i = arraySize; i < newSize; ++i){ //initalize new elements
+        elem[i] = T();
+    }
+
+    //reset size variable to indicate new size
+    if(newSize > arraySize){
+        arraySize = newSize;
+    }
 }
